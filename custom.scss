@@ -1,0 +1,35 @@
+/*-- scss:defaults --*/
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+$font-family-sans-serif: "Source Serif 4", Georgia, serif;
+$font-family-monospace:  "JetBrains Mono", Menlo, monospace;
+$font-size-root: 18px;
+$primary:   #2a78d6;
+$body-color: #1d1d1b;
+$link-color: #1f62b3;
+
+/*-- scss:rules --*/
+h1, h2, h3, h4, .sidebar, .quarto-title-meta, .nav-page, .callout-title-container {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+h1.title { font-weight: 650; letter-spacing: -0.01em; }
+
+// Theorem-like environments (#thm-, #def-, #prp-, ...) get a left rule.
+.theorem, .definition, .proposition, .lemma, .corollary {
+  border-left: 3px solid $primary;
+  padding: 0.4rem 0 0.4rem 1rem;
+  margin: 1.2rem 0;
+  background: rgba(42, 120, 214, 0.04);
+}
+
+// Code compact relative to text.
+div.sourceCode, pre code { font-size: 0.82em; }
+
+
+.quarto-title-meta-heading { display: none; }
+
+#title-block-header.quarto-title-block.default {
+  .quarto-title-meta-heading  { display: none; }       // hide AUTHOR / PUBLISHED
+  .quarto-title-meta          { margin-top: 1rem; }    // space below the subtitle
+  .quarto-title-meta-contents { font-size: 1.2rem; }   // bigger name and date
+}

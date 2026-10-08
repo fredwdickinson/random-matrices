@@ -1,0 +1,22 @@
+::: {.hidden}
+$$
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cO}{\mathcal{O}}
+
+\newcommand{\pr}{\mathbb{P}}
+\newcommand{\0}{\mathbf{0}}
+
+% \conj{z} gives the conjugate (overline)
+\newcommand{\conj}[1]{\overline{#1}}
+
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+$$
+:::

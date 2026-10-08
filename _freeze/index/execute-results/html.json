@@ -1,0 +1,12 @@
+{
+  "hash": "1476920330ebdca7e96017c93a1e0ef6",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "# Home {.unnumbered}\n\nThis project is an expository introduction to random matrix theory: an incredibly interesting area of mathematics I learned about for my MSc dissertation! The theory here is intended to be accessible and largely supported by numerical examples in Python. For a more complete treamet, refer to the primary references [@mehta2004random; @forrester2010log; @anderson2010introduction; @livan2018introduction; @tao2012topics].\n\nThere is a similar [exposition by Robert Sweeney Blanco](https://robertsweeneyblanco.github.io/Computational_Random_Matrix_Theory/Home/Home.html) that was indeed the inspiration for this site. Their work is excellent and recommended as another resource. Ours puts more focus on the application of Dyson Brownian Motion for random matrices.\n\n::: {#cell-fig-teaser .cell execution_count=2}\n``` {.python .cell-code code-fold=\"true\"}\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nrng = np.random.default_rng(0)\nN = 2000\nA = rng.standard_normal((N, N))\nH = (A + A.T) / np.sqrt(2)                 # a GOE matrix\neigs = np.linalg.eigvalsh(H) / np.sqrt(N)  # rescale so the spectrum sits in [-2, 2]\n\nx = np.linspace(-2, 2, 400)\nplt.hist(eigs, bins=60, density=True, alpha=0.75, label=\"eigenvalues\")\nplt.plot(x, np.sqrt(4 - x**2) / (2 * np.pi), label=\"semicircle\")\nplt.xlabel(r\"$\\lambda / \\sqrt{N}$\")\nplt.ylabel(\"density\")\nplt.legend()\nplt.show()\n```\n\n::: {.cell-output .cell-output-display}\n![Eigenvalues of a single 2000 × 2000 random symmetric matrix (blue) against Wigner's semicircle (orange).](index_files/figure-html/fig-teaser-output-1.svg){#fig-teaser}\n:::\n:::\n\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

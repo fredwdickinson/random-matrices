@@ -1,0 +1,43 @@
+project:
+  type: book
+  output-dir: _book
+  # Run every Python cell from the project root, so `matplotlibrc` (shared
+  # figure style) is picked up by all chapters.
+  execute-dir: project
+
+book:
+  title: "Random Matrix Theory and Dyson Brownian Motion: A Computational Introduction"
+  author: "Fred Dickinson"                     
+  date: today
+  date-format: "MMMM YYYY"
+  page-navigation: true
+  search: true
+  chapters:
+    - index.qmd
+    - part: "Introduction"
+      chapters:
+        - chapters/gaussian_ensembles.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+execute:
+  freeze: auto
+  cache: true
+
+format:
+  live-html:
+    theme: [cosmo, custom.scss]
+    toc: true
+    grid:
+      body-width: 1000px      
+      sidebar-width: 280px    
+      margin-width: 250px   
+    number-sections: true
+    code-copy: true
+    code-overflow: wrap
+    fig-format: svg
+    fig-align: center
+    crossref:
+      chapters: true
+

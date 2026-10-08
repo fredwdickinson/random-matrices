@@ -1,0 +1,61 @@
+# The Gaussian Ensembles
+
+{{< include /_macros.qmd >}}
+
+In the simplest sense, random matrices are just matrices whose entries are random variables. The most common class of random matrices we will discuss here are matrices whose entries are normal (Gaussian) random variables. For example, consider an $N\times N$ real symmetric matrix $A$ with, up to some variance $\sigma^2$,
+
+- i.i.d diagonal entries $\mathcal{N}(0, 2\sigma^2)$,
+- i.i.d off diagonal entries $\mathcal{N}(0, \sigma^2$).
+
+That is,
+$$
+A_{kk} = \mathcal{N}(0, 2\sigma^2), \quad A_{k\ell} = \mathcal{N}(0, \sigma^2), \quad \ell < k, \quad A_{k\ell} = A_{\ell k}.
+$$
+Matrices constructed in this way make up the Gaussian Orthogonal Ensembles (GOE). The symmetry constraint forces their eigenvalues to be real. They concentrate in the interval $[-2\sqrt{N}, ~2\sqrt{N}]$ when $\sigma^2 = 1$, and in $[-2, ~2]$ when $\sigma^2 = 1/N$ [@forrester2010log]. 
+
+A subtle but important point about this construction is that the diagonal entries have twice the variance than the rest of the matrix. It makes $A$ invariant under orthogonal transformation in the sense that $\mathbb{P}(A) = \mathbb{P}(U^T A U)$ for appropriate probability measures $\mathbb{P}$ and orthogonal matrices $U$. To see this, consider the joint density of all matrix elements,
+$$
+\begin{align}
+    \mathbb{P}(A) &\propto \prod_{k=1}^N \mathbb{P}(A_{kk})\prod_{k<\ell}\mathbb{P}(A_{k\ell}) \propto \prod_{k=1}^N \exp\left(
+        -\frac{A_{kk}^2}{4\sigma^2}
+    \right)
+    \prod_{k<\ell}\exp\left(
+        -\frac{A_{k\ell}^2}{2\sigma^2}
+    \right)\nonumber\\
+    &= \exp\left(-\frac{1}{4\sigma^2}\left[
+        \sum_{k=1}^N A_{kk}^2 + 2\sum_{k<\ell}A_{k\ell}^2
+    \right]\right)\nonumber\\
+    &= \exp\left(-\frac{1}{4\sigma^2}\mathrm{tr}(A^2)\right)
+\end{align}
+$$
+and recall that the trace is invariant, e.g.\ by using the cycle property of the trace $\mathrm{tr}(U^T A U) = \mathrm{tr}(A UU^T) = \mathrm{tr}(A)$. 
+
+Thus is the name "Gaussian Orthogonal Ensemble". 
+
+There are two more random matrix ensembles that can be realised as matrices with Gaussian entries: the Gaussian Unitary Ensemble (GUE) and the Gaussian Symplectic Ensemble (GSE). These follow the same structure as the GOE, just with complex and quarternionic entries instead. To be clear, a comprehensive description of these three ensembles is given below.
+
+1. The Gaussian Orthogonal Ensemble (GOE) is the collection of real symmetric matrices whose entries are distributed
+$$
+A_{kk} \sim \cN(0, 2\sigma^2), \quad A_{k\ell} \sim \cN(0, \sigma^2), \quad k < \ell, \quad A_{\ell k} = A_{k\ell}.
+$$
+Matrices from the GOE satisfy $\pr(A) = \pr(OAO^T)$ for any orthogonal matrix $O$ (the joint density is invariant under orthogonal transformation).
+
+1. The Gaussian Unitary Ensemble (GUE) is the collection of Hermitian matrices whose entries are complex numbers $a + bi$ distributed
+$$
+A_{kk} \sim \cN(0, 2\sigma^2), \quad A_{k\ell} \sim \cN(0, \sigma^2/2) + i \cN(0, \sigma^2/2), \quad k < \ell, \quad A_{\ell k} = \conj{A_{k\ell}}.
+$$
+Matrices from the GUE satisfy $\pr(A) = \pr(UAU^*)$ for any unitary matrix $U$ (the joint density is invariant under unitary transformation).
+    
+1. The Gaussian Symplectic Ensemble (GSE) is the collection of self-dual matrices whose entries are quaternions $a + b\mathbf{i} + c\mathbf{j} + d\mathbf{k}$ distributed
+$$
+\begin{align*}
+    &A_{kk} \sim \cN(0, 2\sigma^2),\\
+    &A_{k\ell} \sim \cN(0, \sigma^2/4) + \mathbf{i}\cN(0, \sigma^2/4) + \mathbf{j}\cN(0, \sigma^2/4) + \mathbf{k}\cN(0, \sigma^2/4), \quad k < \ell,
+\end{align*}
+$$
+again with $A_{\ell k } = \conj{A_{k\ell}}$, but now $\conj{(\cdot)}$ indicates the quaternionic conjugate. Matrices from the GSE satisfy $\pr(A) = \pr(SAS^\dagger)$ for any symplectic matrix $S$ (the joint density is invariant under symplectic transformation).
+
+
+
+
+

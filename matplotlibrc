@@ -1,0 +1,31 @@
+## Shared figure style for every page. Matplotlib reads this file
+## automatically because _quarto.yml runs code from the project root.
+
+figure.figsize : 7, 3.4
+figure.dpi     : 110
+savefig.bbox   : tight
+font.size      : 10
+mathtext.fontset : cm
+
+# Categorical colours, always assigned in this order:
+# 1 blue = simulation, 2 orange = theory, 3 aqua = comparison/baseline
+axes.prop_cycle : cycler('color', ['2a78d6', 'eb6834', '1baf7a', 'eda100', 'e87ba4', '008300', '4a3aa7', 'e34948'])
+
+axes.spines.top   : False
+axes.spines.right : False
+axes.edgecolor    : 9a9993
+axes.labelcolor   : 52514e
+axes.titlesize    : medium
+axes.titlelocation : left
+axes.grid         : True
+axes.axisbelow    : True
+grid.color        : e8e7e2
+grid.linewidth    : 0.6
+xtick.color       : 52514e
+ytick.color       : 52514e
+
+lines.linewidth   : 2
+patch.force_edgecolor : True
+patch.edgecolor   : ffffff
+patch.linewidth   : 0.4
+legend.frameon    : False
