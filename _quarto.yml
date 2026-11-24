@@ -17,6 +17,7 @@ book:
     - part: "Introduction"
       chapters:
         - chapters/gaussian_ensembles.qmd
+        - chapters/eigenvalues.qmd
     - references.qmd
 
 bibliography: references.bib

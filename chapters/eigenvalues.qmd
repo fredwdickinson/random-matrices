@@ -1,0 +1,61 @@
+# Eigenvalues and the $\beta$-Ensembles
+
+{{< include /_macros.qmd >}}
+
+Consider again the joint density of an $N\times N$ matrix $M$ from the Gaussian Orthogonal Ensemble (the GOE)
+$$
+\begin{align*}
+    \mathbb{P}(M) &\propto \prod_{k=1}^N \mathbb{P}(M_{kk})\prod_{k<\ell}\mathbb{P}(M_{k\ell}) \propto \prod_{k=1}^N \exp\left(
+        -\frac{M_{kk}^2}{4\sigma^2}
+    \right)
+    \prod_{k<\ell}\exp\left(
+        -\frac{M_{k\ell}^2}{2\sigma^2}
+    \right).
+\end{align*}
+$$
+
+With some work, one can isolate the eigenvalues $\lambda = (\lambda_1, \dots, \lambda_N)$ and find the eigenvalue joint probability density function (jpdf)
+$$
+\begin{equation}
+\rho(\lambda_1, \dots, \lambda_N) \propto \exp\left(-\frac{1}{4\sigma^2}\sum_{j=1}^N \lambda_j^2\right)\prod_{j<k}|\lambda_k - \lambda_j| . 
+\end{equation}
+$$
+It can be instructive to first derive this jpdf for $2\times 2$ matrices before generalising to larger $N$; refer to [@livan2018introduction] for a clear guide. Extending the same argument to the GUE and GSE yields a similar result, and one can show that the generalised jpdf is
+$$
+\begin{equation*}
+    \rho(\lambda_1, \dots, \lambda_N) \propto \exp\left(-\frac{\beta}{4\sigma^2}\sum_{j=1}^N \lambda_j^2\right)\prod_{j<k}|\lambda_k - \lambda_j|^\beta
+\end{equation*}
+$$
+with $\beta \in \{1, 2, 4\}$ corresponding to the GOE, GUE, and GSE respectively. From a structural point of view, $\beta$ describes the number of independent degrees of freedom in each matrix entry. It also describes the strength of the apparent repulsion between the eigenvalues, as seen through the so-called Vandermonde determinant $\prod_{j<k}|\lambda_k - \lambda_j|^\beta$.
+
+It is now convenient to set the variance $\sigma^2 = 1/N$. Recall that this has the eigenvalues concentrate in the interval $[-2, 2]$. By further considering the identity
+$$
+\begin{equation*}
+\prod_i y_i^\beta = \exp\left ( \beta \sum_i \log y_i \right),
+\end{equation*}
+$$
+the eigenvalue jpdf can be written as
+$$
+\begin{align*}
+    \rho(\lambda_1, \dots, \lambda_N) &\propto \exp \left[-\beta N \left(   
+        \frac{1}{2}\sum_{j=1}^N \frac{\lambda_j^2}{2} - \frac{1}{N}\sum_{j<k}\log|\lambda_k - \lambda_j|
+    \right)    \right]\\
+    &=: \exp\big[ -\beta N H_N(\lambda) \big],
+\end{align*}
+$$
+where $H_N(\lambda)$ can be seen as the energy of the system
+$$
+\begin{equation*}
+    H_N(\lambda) = \frac{1}{2}\sum_{j=1}^N \frac{\lambda_j^2}{2} - \frac{1}{N}\sum_{j<k}\log|\lambda_k - \lambda_j|.
+\end{equation*}
+$$
+
+This perspective is from statistical mechanics, where the eigenvalues $\lambda$ are treated as interacting particles whose equilibrium arises from a balance of two competing effects: the confinement $\sum_j \lambda_j^2/2$, and the logarithmic repulsion $\sum_{j<k}\log |\lambda_k - \lambda_j|$. The Dyson index $\beta$ acts as an inverse temperature.
+
+As it stands, the fact that $\lambda$ arise as the eigenvalues of the Gaussian ensembles means that the confining potential is quadratic and $\beta$ is restricted to the values $\beta \in \{1, 2, 4\}$. For other ensembles, e.g.\ the Wishart-Laguerre or the Jacobi ensembles, the confining potential takes a different form, but $\beta$ is still restricted to these three values^[At least for the classical matrix models. There are alternative matrix models [@dumitriu2002matrix] that extend several important ensembles, including the Gaussian ensembles, to all $\beta > 0$.]. However, we can always consider a more general form of the eigenvalue jpdf by introducing a generic potential $V$, with appropriate support, so that the Hamiltonian becomes
+$$
+\begin{equation*}
+    H_N(\lambda) = \frac{1}{2}\sum_{j=1}^N V(\lambda_j) - \frac{1}{N}\sum_{j<k}\log|\lambda_k - \lambda_j|
+\end{equation*}
+$$
+and we allow all $\beta > 0$. With this, the density $\rho(\lambda) \propto \exp[-\beta N H_N(\lambda)]$ describes the $\beta$-ensembles: an incredibly broad class of ensembles and the primary object of interest on this site.
